@@ -4,17 +4,17 @@
 
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Button, Alert, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { Stack } from 'expo-router';
 
-let perm = 1
+let perm = 0
 export default function Layout() {
     if (perm == 1) {
         return(
       <View style={styles.container}>
       <Text style = {styles.logo}>BeFeel!</Text>
-      <Pressable onPress={() => Alert.alert('LOGIN')}><Text style = {styles.login}>Login</Text></Pressable>
-      <Pressable onPress={() => Alert.alert('ALERT USER')}><Text style = {styles.login}>Alert</Text></Pressable>
+      <Pressable onPress={() => alert('LOGIN')}><Text style = {styles.login}>Login</Text></Pressable>
+      <Pressable onPress={() => alert('ALERT USER')}><Text style = {styles.login}>Alert</Text></Pressable>
  
       <StatusBar style="auto" />
     </View>
@@ -31,9 +31,12 @@ export default function Layout() {
             },
         }}
     >
-        <Stack.Screen name="home"/>
+        <Stack.Screen name="Home"/>
 
-        <Stack.Screen name="profile"/>
+        <Stack.Screen name="Profile"/>
+        <Stack.Screen name="index"/>
+        <Stack.Screen name="Setting"/>
+        <Stack.Screen name="My Friends"/>
     </Stack>
     )
 }
