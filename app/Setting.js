@@ -8,7 +8,7 @@ const Setting = () => {
             {/*<Link href="/profile">Go to Profile</Link> */}
 
             <ScrollView style={styles.scrollView}>
-            <Link  href="PersonalDetails?user="
+            <Link  href="Personal Details?user="
             style = {styles.SettingOpt}>
                 Personal Details
             </Link>
