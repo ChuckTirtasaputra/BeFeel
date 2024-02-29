@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Pressable, ScrollView } from 'react-native';
 const home = () => {
   return (
     <View>
-        {/*<Link href="/profile">Go to Profile</Link> */}
+        {/* <Link href="/profile">Go to Profile</Link> */}
 
         <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
@@ -28,6 +28,30 @@ const home = () => {
         </Link>
 
         </View>
+        <View style={styles.separators} />
+
+        {/* for posts in database, show user who posted, post, and separators */}
+        <Text style={styles.post}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+        culpa qui officia deserunt mollit anim id est laborum.
+        </Text>
+        <View style={styles.separators} />
+
+        <Text style={styles.post}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+        culpa qui officia deserunt mollit anim id est laborum.
+        </Text>
+        <View style={styles.separators} />
 
         <Text style={styles.post}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -48,23 +72,27 @@ export default home
 const styles = StyleSheet.create({
     scrollView: {
         backgroundColor: 'pink',
-        marginHorizontal: 20,
-        marginVertical: 20,
       },
       post: {
         fontSize: 25,
         fontWeight: 'normal',
-        color: '#fff',
+        color: '#000',
         marginHorizontal: 20,
       },
       links: {
         fontSize: 20,
         fontWeight: '700',
-        color: '#191970',
+        color: '#23679e',
         padding: 10,
       },
       container: {
         display: 'flex',
         flexDirection: 'row',
+      },
+      separators: {
+        height: 3,
+        backgroundColor: '#000', 
+        marginHorizontal: 10,
+        marginVertical: 5.
       },
 })
