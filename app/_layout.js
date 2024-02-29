@@ -1,40 +1,53 @@
-/// 2 alerts a day
-/// 1st 9am-3pm
-/// 2nd from 4pm-10pm
+/*
+Notes:
+- 2 alerts a day
+- 1st 9am-3pm
+- 2nd from 4pm-10pm
+
+1. Database integrated
+2. Alerts 
+3. Login 
+*/
 
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { Stack } from 'expo-router';
 
-let perm = 0
+let perm = 3
 export default function Layout() {
-    if (perm == 1) {
-        return(
-      <View style={styles.container}>
-      <Text style = {styles.logo}>BeFeel!</Text>
-      <Pressable onPress={() => alert('LOGIN')}><Text style = {styles.login}>Login</Text></Pressable>
-      <Pressable onPress={() => alert('ALERT USER')}><Text style = {styles.login}>Alert</Text></Pressable>
- 
-      <StatusBar style="auto" />
+  if (perm == 1) {
+      return(
+    <View style={styles.container}>
+    <Text style = {styles.logo}>BeFeel!</Text>
+    <Pressable onPress={() => alert('LOGIN')}>
+      <Text style = {styles.login}>
+        Login
+      </Text>
+    </Pressable>
+
+    <Pressable onPress={() => alert('ALERT USER')}>
+      <Text style = {styles.login}>
+        Alert
+      </Text>
+    </Pressable>
+
+    <StatusBar style="auto" />
     </View>
-    )
-    } else {
+  )
+  } else {
     return (
         <Stack screenOptions={{
             headerStyle: {
-                backgroundColor: "#000",
+                backgroundColor: "#4a84be",
             },
             headerTintColor: "white",
             headerTitleStyle: {
                 fontWeight: "bold",
             },
-        }}
-    >
+        }}>
         <Stack.Screen name="Home"/>
-
         <Stack.Screen name="Profile"/>
-        <Stack.Screen name="index"/>
         <Stack.Screen name="Setting"/>
         <Stack.Screen name="My Friends"/>
     </Stack>
