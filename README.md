@@ -1,6 +1,6 @@
 # BeFeel
 
-Instructions
+Getting the environment working
 1. Download 'Expo Go' on your phone (login)
 2. Follow the manual installation from https://docs.expo.dev/router/installation/#quick-start or do the following:
 4. Run 'npx create-expo-app' in the terminal of your complier (I use VSCode)
