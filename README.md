@@ -11,3 +11,8 @@ Getting the environment working
 9. This should run a mini server that allows you to see the app from the web or from your phone
 10. It should give you a QR code that you should scan and it will take you to Expo Go
 11. You click on the project and you should be able to see the app
+
+Working with screens
+1. If you want to make changes, edit the files in the 'app' folder
+2. Make new screens by making new js files in the 'app' folder
+3. Go to the new screens by linking them (refer to the stuff in the files already for an example)
