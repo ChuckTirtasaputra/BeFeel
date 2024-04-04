@@ -41,8 +41,3 @@ Working with screens
 3. Go to the new screens by linking them (refer to the stuff in the files already for an example)
 
 
-FIREBASE
-npx expo install firebase
-npm install @react-navigation/native @react-navigation/native-stack
-npx expo install react-native-screens react-native-safe-area-context
-npx expo customize metro.config.js
