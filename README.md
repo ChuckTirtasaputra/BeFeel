@@ -16,3 +16,9 @@ Working with screens
 1. If you want to make changes, edit the files in the 'app' folder
 2. Make new screens by making new js files in the 'app' folder
 3. Go to the new screens by linking them (refer to the stuff in the files already for an example)
+
+
+FIREBASE
+npx expo install firebase
+npx expo install react-native-screens react-native-safe-area-context
+npx expo customize metro.config.js
