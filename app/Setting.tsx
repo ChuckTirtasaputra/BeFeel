@@ -1,22 +1,24 @@
-import React from 'react'
 import { Link } from 'expo-router'
 import { StyleSheet, Text, View, Pressable, ScrollView } from 'react-native';
+import React from 'react';
+import { NavigationProp } from '@react-navigation/native'
+import { FIREBASE_AUTH } from '../FirebaseConfig';
 
-const Setting = () => {
+interface RouterProps {
+    navigation: NavigationProp<any, any>
+}
+
+const Setting = ({ navigation }: RouterProps) => {
     return (
         <View>
-            {/*<Link href="/profile">Go to Profile</Link> */}
-
             <ScrollView style={styles.scrollView}>
-            <Link  href="Personal Details?user="
-            style = {styles.SettingOpt}>
-                Personal Details
-            </Link>
 
-            <Pressable onPress={() => alert('Password')}>
-                <Text style = {styles.SettingOpt}>
-                    Password
-                </Text>
+            <Pressable onPress= {() => navigation.navigate('Personal Details')}>
+            <Text style={styles.SettingOpt}>Personal Details</Text>
+            </Pressable>
+
+            <Pressable onPress= {() => navigation.navigate('Password')}>
+            <Text style={styles.SettingOpt}>Password</Text>
             </Pressable>
 
             <Pressable onPress={() => alert('Notifications')}>
@@ -31,13 +33,12 @@ const Setting = () => {
                 </Text>
             </Pressable>
 
-            <Pressable onPress={() => alert('Log Out')}>
+            <Pressable onPress={() => FIREBASE_AUTH.signOut()}>
                 <Text style = {styles.SettingOpt}>
                     Log Out
                 </Text>
             </Pressable>
 
-    
             </ScrollView>
         </View>
     );
