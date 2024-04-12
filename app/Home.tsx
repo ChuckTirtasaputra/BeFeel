@@ -1,31 +1,31 @@
-import React from 'react'
-import { Link } from 'expo-router'
 import { StyleSheet, Text, View, Pressable, ScrollView } from 'react-native';
+import React from 'react';
+import { NavigationProp } from '@react-navigation/native'
 
-const home = () => {
+interface RouterProps {
+    navigation: NavigationProp<any, any>
+}
+
+const Home = ({ navigation }: RouterProps) => {
   return (
     <View>
         {/* <Link href="/profile">Go to Profile</Link> */}
 
         <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
-        <Link href={{
-            pathname: "/Profile",
-            params: { name: "Chuck" },
-        }}
-        style={styles.links}>
-            Profile
-        </Link>
 
-        <Link  href="/Setting?user=" 
-        style={styles.links}>
-            Setting
-        </Link>
 
-        <Link  href="/My Friends?user=" 
-        style={styles.links}>
-            Friends
-        </Link>
+        <Pressable onPress= {() => navigation.navigate('Profile')}>
+            <Text style={styles.links}>Profile</Text>
+        </Pressable>
+
+        <Pressable onPress= {() => navigation.navigate('Setting')}>
+            <Text style={styles.links}>Setting</Text>
+        </Pressable> 
+
+        <Pressable onPress= {() => navigation.navigate('My Friends')}>
+            <Text style={styles.links}>My Friends</Text>
+        </Pressable> 
 
         </View>
         <View style={styles.separators} />
@@ -64,10 +64,11 @@ const home = () => {
         </Text>
         </ScrollView>
     </View>
+
   );
 };
 
-export default home
+export default Home
 
 const styles = StyleSheet.create({
     scrollView: {
@@ -88,6 +89,7 @@ const styles = StyleSheet.create({
       container: {
         display: 'flex',
         flexDirection: 'row',
+        justifyContent: "space-around"
       },
       separators: {
         height: 3,
