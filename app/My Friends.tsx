@@ -1,8 +1,14 @@
-import React from 'react'
 import { Link } from 'expo-router'
 import { StyleSheet, Text, View, Pressable, ScrollView } from 'react-native';
+import React from 'react';
+import { NavigationProp } from '@react-navigation/native'
+import { FIREBASE_AUTH } from '../FirebaseConfig';
 
-const My_Friends = () => {
+interface RouterProps {
+  navigation: NavigationProp<any, any>
+}
+
+const My_Friends = ({ navigation }: RouterProps) => {
     return (
         <View>
             {/*<Link href="/profile">Go to Profile</Link> */}
