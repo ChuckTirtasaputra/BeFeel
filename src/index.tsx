@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
-import { db } from '../config';
+import { db } from '../FirebaseConfig';
 import { ref, set } from 'firebase/database';
 
 const AddData: React.FC = () => {
@@ -16,7 +16,6 @@ const AddData: React.FC = () => {
         setTitle('');
         setBody('');
     };
-
     return (
         <View style={styles.container}>
             <Text style={styles.header}>Post Your Mood</Text>
@@ -39,18 +38,16 @@ const AddData: React.FC = () => {
 
 export default AddData;
 
-
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'pink',
     },
     header: {
         fontSize: 20,
         fontWeight: 'bold',
         textAlign: 'center',
-        marginTop: 100,
+        marginTop: 5,
     },
     input: {
         borderWidth: 1,
