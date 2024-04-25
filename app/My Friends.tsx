@@ -10,7 +10,7 @@ interface RouterProps {
 
 const My_Friends = ({ navigation }: RouterProps) => {
     return (
-        <View>
+      <View style={styles.container}>
             {/*<Link href="/profile">Go to Profile</Link> */}
 
             <ScrollView style={styles.scrollView}>
@@ -50,21 +50,21 @@ const styles = StyleSheet.create({
     scrollView: {
         backgroundColor: 'black',
       },
-      links: {
-        fontSize: 20,
-        fontWeight: '700',
-        color: '#191970',
-        padding: 10,
-      },
-      container: {
-        display: 'flex',
-        flexDirection: 'row',
-      },
-      Friends: {
-        fontSize: 20,
-        fontWeight: '700',
-        color: '#fff',
-        marginHorizontal: 20,
-        marginTop: 20,
-      }
+    links: {
+      fontSize: 20,
+      fontWeight: '700',
+      color: '#191970',
+      padding: 10,
+    },
+    container: {
+      flex: 1,
+      backgroundColor: 'black',
+    },
+    Friends: {
+      fontSize: 20,
+      fontWeight: '700',
+      color: '#fff',
+      marginHorizontal: 20,
+      marginTop: 25,
+    }
 })
