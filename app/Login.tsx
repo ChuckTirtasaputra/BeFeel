@@ -11,23 +11,31 @@ Notes:
 
 import { StyleSheet, Text, View, Pressable, TextInput, ActivityIndicator, Button, KeyboardAvoidingView } from 'react-native';
 import React, { useState } from 'react';
-import { FIREBASE_AUTH, FIREBASE_DB } from '../FirebaseConfig';
+import { FIREBASE_AUTH, db } from '../FirebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc } from "firebase/firestore"; 
+import { ref, set } from 'firebase/database';
 
-const cityRef = doc(FIREBASE_DB, 'cities', 'BJ');
-setDoc(cityRef, { capital: true }, { merge: true });
-
-const Login = () =>{
+const Login: React.FC = () =>{
+  const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const auth = FIREBASE_AUTH;
 
+  const dataAddOn = () => {
+    set(ref(db, 'userInfo/' + user), {
+        username: user, 
+        email: email,
+    });
+    setUser('');
+    setEmail('');
+  };
+
   const signIn = async () => {
       setLoading(true);
       try {
           const response = await signInWithEmailAndPassword(auth, email, password);
+          dataAddOn()
           console.log('response: ', response);
       }   catch (error: any) {
           console.log(error);
@@ -41,6 +49,7 @@ const Login = () =>{
       setLoading(true);
       try {
           const response = await createUserWithEmailAndPassword(auth, email, password);
+          dataAddOn()
           console.log(response);
           alert('Check your emails!');
       }   catch (error: any) {
@@ -56,9 +65,27 @@ const Login = () =>{
           <KeyboardAvoidingView behavior="padding">
               <Text style = {styles.logo}>BeFeel!</Text>
 
-              <TextInput value={email} style= {styles.input} placeholder="Email" autoCapitalize="none" onChangeText={(text) => setEmail(text)}></TextInput>
-              <TextInput secureTextEntry={true} value={password} style= {styles.input} placeholder="Password" autoCapitalize="none"  onChangeText={(text) => setPassword(text)}></TextInput>
-          
+              <TextInput 
+                value={user} 
+                style= {styles.input} 
+                placeholder="Username" autoCapitalize="none" 
+                onChangeText={(text) => setUser(text)}
+                />
+
+              <TextInput 
+                value={email} 
+                style= {styles.input} 
+                placeholder="Email" autoCapitalize="none" 
+                onChangeText={(text) => setEmail(text)}
+                />
+
+              <TextInput 
+                secureTextEntry={true} 
+                value={password} 
+                style= {styles.input} 
+                placeholder="Password" autoCapitalize="none"  
+                onChangeText={(text) => setPassword(text)}/>
+
               {loading ? (
                   <ActivityIndicator size="large" color="#0000ff" />
               ) : (
@@ -108,11 +135,11 @@ const styles = StyleSheet.create({
       padding: 100
     },
     input: {
-        marginVertical: 10,
+        marginVertical: 5,
         height: 50,
         borderWidth: 1,
         borderRadius: 4,
-        padding:10,
+        padding: 10,
         backgroundColor: '#fff'
     },
   });
