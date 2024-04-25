@@ -31,7 +31,7 @@ const AddData: React.FC = () => {
                 onChangeText={(text) => setBody(text)}
                 style={styles.input}
             />
-            <Button title='Add Data' onPress={dataAddOn} />
+            <Button title='New Post' onPress={dataAddOn} />
         </View>
     );
 };
