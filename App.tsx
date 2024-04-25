@@ -21,8 +21,8 @@ function InsideLayout()  {
       <InsideStack.Screen name= "Home" component={Home}/>
       <InsideStack.Screen name= "Profile" component={Profile}/>
       <InsideStack.Screen name= "Setting" component={Setting}/>
+      <InsideStack.Screen name= "Post" component={Post}/>
       <InsideStack.Screen name= "My Friends" component={My_Friends}/>
-      <InsideStack.Screen name="Post" component={Post} />
     </InsideStack.Navigator>
   )
 }
