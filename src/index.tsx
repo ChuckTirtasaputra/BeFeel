@@ -20,13 +20,13 @@ const AddData: React.FC = () => {
         <View style={styles.container}>
             <Text style={styles.header}>Post Your Mood</Text>
             <TextInput
-                placeholder='Title'
+                placeholder='Mood'
                 value={title}
                 onChangeText={(text) => setTitle(text)}
                 style={styles.input}
             />
             <TextInput
-                placeholder='Body'
+                placeholder='Explain Why'
                 value={body}
                 onChangeText={(text) => setBody(text)}
                 style={styles.input}
