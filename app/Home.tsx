@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View, Pressable, ScrollView } from 'react-native';
 import React from 'react';
 import { NavigationProp } from '@react-navigation/native'
+import AddData from '../src/index';
+import FetchData from '../src/fetch';
 
 interface RouterProps {
     navigation: NavigationProp<any, any>
@@ -10,10 +12,8 @@ const Home = ({ navigation }: RouterProps) => {
   return (
     <View>
         {/* <Link href="/profile">Go to Profile</Link> */}
-
         <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
-
 
         <Pressable onPress= {() => navigation.navigate('Profile')}>
             <Text style={styles.links}>Profile</Text>
@@ -30,38 +30,14 @@ const Home = ({ navigation }: RouterProps) => {
         </View>
         <View style={styles.separators} />
 
-        {/* for posts in database, show user who posted, post, and separators */}
-        <Text style={styles.post}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-        culpa qui officia deserunt mollit anim id est laborum.
-        </Text>
-        <View style={styles.separators} />
+        {/*input box*/}
+        <View>
+            <AddData />
+        </View>
 
-        <Text style={styles.post}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-        culpa qui officia deserunt mollit anim id est laborum.
-        </Text>
-        <View style={styles.separators} />
-
-        <Text style={styles.post}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-        culpa qui officia deserunt mollit anim id est laborum.
-        </Text>
+        <View>
+            <FetchData />
+        </View>
         </ScrollView>
     </View>
 
@@ -95,6 +71,6 @@ const styles = StyleSheet.create({
         height: 3,
         backgroundColor: '#000', 
         marginHorizontal: 10,
-        marginVertical: 5.
+        marginVertical: 5,
       },
 })
