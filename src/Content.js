@@ -1,60 +1,56 @@
-import { Link } from 'expo-router'
-import { StyleSheet, Text, View, Pressable, ScrollView } from 'react-native';
-import React from 'react';
-import { NavigationProp } from '@react-navigation/native'
-import { FIREBASE_AUTH } from '../FirebaseConfig';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { db } from '../FirebaseConfig';
+import { ref, onValue } from 'firebase/database';
 
-interface RouterProps {
-    navigation: NavigationProp<any, any>
+const Content = () => {
+    const [todoData, setTodoData] = useState([])
+
+    useEffect (() => {
+        const starCountRef = ref(db, 'posts/');
+        onValue(starCountRef, (snapshot) => {
+            const data = snapshot.val();
+            const newPosts = Object.keys(data).map(key => ({
+                id:key,
+                ...data[key]
+            }));
+            setTodoData(newPosts);
+        });
+    }, [])
+    return (
+        <View>
+            {
+                todoData.map((item, index) => {
+                    return(
+                        <View key={index}> 
+                            <Text style={styles.header}>Mood: {item.title}</Text>
+                            <Text style={styles.text}>{item.body}</Text>
+                        </View>
+                    )
+                })
+            }
+        </View>
+    )
 }
 
-const Setting = ({ navigation }: RouterProps) => {
-    return (
-        <View style={styles.container}>
-            <ScrollView style={styles.scrollView}>
-
-            <Pressable onPress= {() => navigation.navigate('Password')}>
-            <Text style={styles.SettingOpt}>Password</Text>
-            </Pressable>
-
-            <Pressable onPress={() => alert('Notifications')}>
-                <Text style = {styles.SettingOpt}>
-                    Notifications
-                </Text>
-            </Pressable>
-
-            <Pressable onPress={() => alert('Privacy')}>
-                <Text style = {styles.SettingOpt}>
-                    Privacy
-                </Text>
-            </Pressable>
-
-            <Pressable onPress={() => FIREBASE_AUTH.signOut()}>
-                <Text style = {styles.SettingOpt}>
-                    Log Out
-                </Text>
-            </Pressable>
-
-            </ScrollView>
-        </View>
-    );
-};
-
-export default Setting
+export default Content
 
 const styles = StyleSheet.create({
-    scrollView: {
-        backgroundColor: 'black',
-        },
-    SettingOpt: {
-        fontSize: 20,
-        fontWeight: '700',
-        color: '#fff',
-        marginHorizontal: 20,
-        marginTop: 25,
-        },
     container: {
         flex: 1,
-        backgroundColor: 'black',
-        },
-})
+        backgroundColor: 'pink',
+    },
+    header: {
+        fontSize: 23,
+        fontWeight: 'bold',
+        textAlign: 'left',
+        marginTop: 5,
+        marginHorizontal: 20,
+    },
+    text: {
+        fontSize: 20,
+        fontWeight: 'normal',
+        color: '#000',
+        marginHorizontal: 20,
+      },
+});
