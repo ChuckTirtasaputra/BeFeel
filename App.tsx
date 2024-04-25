@@ -5,7 +5,6 @@ import Home from './app/Home';
 import Profile from './app/Profile';
 import Setting from './app/Setting';
 import My_Friends from './app/My Friends';
-import Post from './app/Post';
 import { useEffect, useState } from 'react';
 import { User, onAuthStateChanged } from 'firebase/auth';
 import { FIREBASE_AUTH } from './FirebaseConfig';
@@ -21,7 +20,6 @@ function InsideLayout()  {
       <InsideStack.Screen name= "Home" component={Home}/>
       <InsideStack.Screen name= "Profile" component={Profile}/>
       <InsideStack.Screen name= "Setting" component={Setting}/>
-      <InsideStack.Screen name= "Post" component={Post}/>
       <InsideStack.Screen name= "My Friends" component={My_Friends}/>
     </InsideStack.Navigator>
   )
