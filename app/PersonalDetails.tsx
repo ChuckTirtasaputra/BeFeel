@@ -8,36 +8,47 @@ interface RouterProps {
   navigation: NavigationProp<any, any>
 }
 
-const PersonalDetails = ({ navigation }: RouterProps) => {
-  return (
-    <View>
-      {/*<Link href="/profile">Go to Profile</Link> */}
+const My_Friends = ({ navigation }: RouterProps) => {
+    return (
+        <View>
+            {/*<Link href="/profile">Go to Profile</Link> */}
 
-      <ScrollView style={styles.scrollView}>
+            <ScrollView style={styles.scrollView}>
+            <Pressable onPress={() => alert('Marcos')}>
+                <Text style = {styles.Friends}>
+                Marcos
+                </Text>
+            </Pressable>
 
-      <Pressable onPress={() => alert('Setting')}>
-          <Text style = {styles.SettingOpt}>
-              Setting
-          </Text>
-      </Pressable>
+            <Pressable onPress={() => alert('Liz')}>
+                <Text style = {styles.Friends}>
+                Liz
+                </Text>
+            </Pressable>
 
+            <Pressable onPress={() => alert('Friend3')}>
+                <Text style = {styles.Friends}>
+                Friend3
+                </Text>
+            </Pressable>
 
-      </ScrollView>
-    </View>
-  );
+            <Pressable onPress={() => alert('Friend4')}>
+                <Text style = {styles.Friends}>
+                Friend4
+                </Text>
+            </Pressable>
+
+    
+            </ScrollView>
+        </View>
+    );
 };
 
-export default PersonalDetails
+export default My_Friends
 
 const styles = StyleSheet.create({
     scrollView: {
         backgroundColor: 'black',
-      },
-      post: {
-        fontSize: 25,
-        fontWeight: 'normal',
-        color: '#fff',
-        marginHorizontal: 20,
       },
       links: {
         fontSize: 20,
@@ -49,7 +60,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
       },
-      SettingOpt: {
+      Friends: {
         fontSize: 20,
         fontWeight: '700',
         color: '#fff',
