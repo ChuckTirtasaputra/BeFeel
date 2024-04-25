@@ -10,12 +10,8 @@ interface RouterProps {
 
 const Setting = ({ navigation }: RouterProps) => {
     return (
-        <View>
+        <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
-
-            <Pressable onPress= {() => navigation.navigate('Personal Details')}>
-            <Text style={styles.SettingOpt}>Personal Details</Text>
-            </Pressable>
 
             <Pressable onPress= {() => navigation.navigate('Password')}>
             <Text style={styles.SettingOpt}>Password</Text>
@@ -49,28 +45,16 @@ export default Setting
 const styles = StyleSheet.create({
     scrollView: {
         backgroundColor: 'black',
-      },
-      post: {
-        fontSize: 25,
-        fontWeight: 'normal',
-        color: '#fff',
-        marginHorizontal: 20,
-      },
-      links: {
-        fontSize: 20,
-        fontWeight: '700',
-        color: '#191970',
-        padding: 10,
-      },
-      container: {
-        display: 'flex',
-        flexDirection: 'row',
-      },
-      SettingOpt: {
+        },
+    SettingOpt: {
         fontSize: 20,
         fontWeight: '700',
         color: '#fff',
         marginHorizontal: 20,
-        marginTop: 20,
-      }
+        marginTop: 25,
+        },
+    container: {
+        flex: 1,
+        backgroundColor: 'black',
+        },
 })
