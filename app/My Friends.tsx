@@ -14,15 +14,15 @@ const My_Friends = ({ navigation }: RouterProps) => {
             {/*<Link href="/profile">Go to Profile</Link> */}
 
             <ScrollView style={styles.scrollView}>
-            <Pressable onPress={() => alert('Friend1')}>
+            <Pressable onPress={() => alert('Marcos')}>
                 <Text style = {styles.Friends}>
-                Friend1
+                Marcos
                 </Text>
             </Pressable>
 
-            <Pressable onPress={() => alert('Friend2')}>
+            <Pressable onPress={() => alert('Liz')}>
                 <Text style = {styles.Friends}>
-                Friend2
+                Liz
                 </Text>
             </Pressable>
 
