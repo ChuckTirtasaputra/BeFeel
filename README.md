@@ -23,7 +23,7 @@ Getting Firebase Up
 6. Click on 'Authentication', 'Get Started'
 7. Under the 'Sign-in method' click 'Email/Password'
 
-Pushing Data into firebase from the app
+Pushing Data into firebase from the app:
 1.To push data we create a separate folder in the same directory called src, were we are going to have our files that connect to the firebase.
 2. In this folder you are going to create a file in our case index.tsx where its going ot take an input from the user and store it in a realtime database in firebase. 
 3. To allow this in firebase, you need to go realtime databse and in the rules tabs, you need to change the value of ".write":false to true.
